@@ -64,17 +64,31 @@
               <h3>Undergraduate Research Intern, Autonomous Agricultural Robotics</h3>
               <span class="kind">Jun – Aug 2026</span>
             </div>
-            <p class="org">USDA REEU program &middot; UTSA</p>
+            <p class="org">USDA REEU program &middot; UTSA &middot; two-student project</p>
             <p class="summary">
-              Computer vision for an autonomous agricultural rover: teaching it to tell
-              which crops are ready to harvest.
+              Real-time tomato ripeness detection for an autonomous rover. The camera feed is
+              processed on the rover itself: each tomato is found, labeled unripe, transitioning
+              or ripe, tracked so it's counted once, and given a distance. Navigation (SLAM, AMCL,
+              Nav2) uses the rover platform's ROS 2 stack; my focus was the vision system.
             </p>
             <ul class="proof">
-              <li>Trained a crop-ripeness detection model that reached <span class="num">0.944</span> mAP@0.5 across three classes: unripe, transitioning, and ripe.</li>
-              <li>Worked with the rover's existing ROS 2 Humble navigation stack (Cartographer SLAM with LiDAR, particle-filter localization, Nav2 path planning) in Gazebo simulation.</li>
+              <li>Trained a YOLO26s detector on <span class="num">7,749</span> images merged from seven public datasets and cleaned with an automated QA pipeline: <span class="num">94.4%</span> mAP@0.5 and <span class="num">89.2%</span> recall on the validation split.</li>
+              <li>The main failure was foliage misread as fruit. Adding background-only images (about <span class="num">17%</span> of the training set) cut false detections on <span class="num">140</span> held-out background images from <span class="num">13</span> to <span class="num">0</span>, with precision and recall still near <span class="num">90%</span>.</li>
+              <li>Deployed it as a ROS 2 node on an NVIDIA Jetson Orin Nano, with ByteTrack tracking and per-fruit depth from an RGB-D camera. A TensorRT FP16 export cut inference from about <span class="num">78</span> to <span class="num">27</span> ms per frame. Field-tested on live tomato plants.</li>
+              <li>Traced a nearly <span class="num">14</span>-point accuracy drop on the Jetson (<span class="num">80.7%</span> vs <span class="num">94.4%</span> mAP@0.5) to an Ultralytics version mismatch between training and deployment, then pinned versions on both.</li>
             </ul>
+            <div class="shots">
+              <figure>
+                <img src="img/rover-live-detection.jpg" width="426" height="327" loading="lazy" alt="Live camera frame from the rover in a garden: four tomatoes on the vine boxed in red and labeled Ripe with confidence scores from 0.64 to 0.76.">
+                <figcaption>Live onboard detection during the garden field test</figcaption>
+              </figure>
+              <figure>
+                <img src="img/rover.jpg" width="822" height="703" loading="lazy" alt="The four-wheel mecanum rover with a LiDAR unit and an RGB-D camera mounted on top.">
+                <figcaption>The rover: Jetson Orin Nano, RGB-D camera, LiDAR</figcaption>
+              </figure>
+            </div>
             <div class="card-foot">
-              <ul class="tags"><li>Computer vision</li><li>Object detection</li><li>ROS 2</li><li>Nav2</li><li>Gazebo</li></ul>
+              <ul class="tags"><li>Computer vision</li><li>YOLO</li><li>PyTorch</li><li>TensorRT</li><li>ROS 2</li><li>Jetson</li><li>ByteTrack</li></ul>
             </div>
           </article>
 
