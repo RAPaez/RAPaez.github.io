@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ricardo Paez</title>
+  <meta name="description" content="Projects by Ricardo Paez: COBOL benchmarks and RL environments, machine-verified practice problems, trading systems, and games.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b7a5c'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top">ricardo<span>.</span>paez</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#work">Work</a>
+        <a href="#activities" class="hide-xs">Activities</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap">
+      <section class="hero">
+        <!-- TODO: add school / major / graduation year here once confirmed -->
+        <p class="eyebrow">// Ricardo Paez</p>
+        <h1>I build software that checks its own work.</h1>
+        <p class="lede">
+          Benchmarks, generators and games where the claims come with proof:
+          COBOL ground truth from a real compiler, practice problems verified before
+          they're printed, and puzzle levels proven solvable before anyone plays them.
+        </p>
+        <div class="hero-links">
+          <a class="btn primary" href="#work">See projects</a>
+          <!-- TODO: add resume.pdf to the repo root, then this link works -->
+          <a class="btn" href="resume.pdf">Resume</a>
+          <a class="btn" href="https://github.com/RAPaez">GitHub</a>
+        </div>
+      </section>
+
+      <section id="work" aria-labelledby="work-h">
+        <div class="section-head">
+          <h2 id="work-h">Selected work</h2>
+          <p>6 projects</p>
+        </div>
+
+        <div class="projects">
+
+          <article class="card">
+            <div class="card-top">
+              <h3>cobol-bench</h3>
+              <span class="kind">AI evaluation · benchmark</span>
+            </div>
+            <p class="summary">
+              Can AI coding assistants really understand legacy COBOL? A small, rigorously
+              validated benchmark: <span class="num">8</span> realistic business programs
+              &times; <span class="num">4</span> task types (predict, explain, translate,
+              generate) = <span class="num">32</span> scored prompts, running on the free
+              GnuCOBOL compiler.
+            </p>
+            <ul class="proof">
+              <li>The COBOL programs and independent Python oracles agree on <span class="num">4,053</span> inputs, including edge cases and mined adversarial cases.</li>
+              <li>Mutation testing: the test suites catch <span class="num">355 of 373</span> planted bugs (<span class="num">95.2%</span>); all <span class="num">18</span> survivors were hand-checked as equivalent.</li>
+              <li>Finding: a float-based translation of the loan program is wrong on only <span class="num">0.1%</span> of random inputs, and the first test suite (<span class="num">0 of 26</span> tests) missed it. Random tests aren't enough.</li>
+            </ul>
+            <div class="card-foot">
+              <ul class="tags"><li>COBOL</li><li>GnuCOBOL</li><li>Python</li><li>Mutation testing</li></ul>
+              <div class="links"><span class="note">Private repo</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>cobol-forge</h3>
+              <span class="kind">Reinforcement-learning environment</span>
+            </div>
+            <p class="summary">
+              An RL environment of procedurally generated COBOL business programs, with ground
+              truth from the real GnuCOBOL compiler and rewards designed to resist reward hacking.
+              It targets what breaks legacy modernization: fixed-point storage, ROUNDED vs
+              truncation, silent overflow, sign loss and exact report formatting.
+            </p>
+            <ul class="proof">
+              <li>Each program is rendered twice by independent code paths, COBOL and an exact-rational Python reference, with <span class="num">0</span> disagreements on about <span class="num">4,000</span> random programs.</li>
+              <li>Four program families (calculations, tables, control breaks, string handling), each with five difficulty levels.</li>
+              <li>A frozen dataset of <span class="num">2,000</span> train / <span class="num">500</span> test tasks, or unlimited procedural generation.</li>
+            </ul>
+            <div class="card-foot">
+              <ul class="tags"><li>Python</li><li>COBOL</li><li>RL environments</li><li>verifiers</li></ul>
+              <div class="links"><span class="note">Private repo</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Verified Practice (stem-packs)</h3>
+              <span class="kind">Generator · practice packs</span>
+            </div>
+            <p class="summary">
+              Generates print-ready practice packs (worksheets plus full worked solutions) where
+              every answer is machine-checked before it's typeset, in three parallel versions with
+              the same skills and different numbers.
+            </p>
+            <ul class="proof">
+              <li>Each problem type has its own verifier: high-precision numerical differentiation for calculus, ODE simulation for physics, and exact enumeration plus Monte Carlo for probability.</li>
+              <li>A self-test plants wrong answers (sign flips, dropped terms, off-by-one counts, wrong units) and requires the verifier to reject every one.</li>
+              <li>Four packs so far: Calculus I derivatives, Calculus II integration, Physics I kinematics, and discrete probability.</li>
+            </ul>
+            <div class="card-foot">
+              <ul class="tags"><li>Python</li><li>SymPy</li><li>SciPy</li><li>NumPy</li></ul>
+              <div class="links">
+                <a href="samples/calc2-integration-free-sample.pdf">Calc II sample (PDF)</a>
+                <a href="samples/physics1-kinematics-free-sample.pdf">Physics sample (PDF)</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Pairs-trading system</h3>
+              <span class="kind">Quant · automation</span>
+            </div>
+            <p class="summary">
+              A statistical-arbitrage pairs-trading system: backtests, a scanner that checks
+              candidate pairs out of sample, and a bot that paper-trades the selected basket
+              through the Alpaca API.
+            </p>
+            <ul class="proof">
+              <li>One config file is the single source of truth for both the backtest and the live bot, after the two had drifted apart.</li>
+              <li>GitHub Actions runs the bot on trading days and opens a monthly pull request proposing basket updates for review.</li>
+              <li>Rolling hedge ratios, a regime filter, and unit-tested position sizing.</li>
+            </ul>
+            <div class="card-foot">
+              <ul class="tags"><li>Python</li><li>pandas</li><li>statsmodels</li><li>Alpaca API</li><li>GitHub Actions</li></ul>
+              <div class="links"><span class="note">Private repo</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Neon Dash</h3>
+              <span class="kind">Mobile game · PWA</span>
+            </div>
+            <p class="summary">
+              A neon endless lane-dodger for phones. Swipe between lanes, dodge the blocks,
+              and grab orbs to build a combo multiplier while the speed ramps up.
+              It installs to the home screen and runs fullscreen and offline.
+            </p>
+            <ul class="proof">
+              <li>No dependencies and no build step: about <span class="num">580</span> lines of vanilla JavaScript drawing to a single canvas.</li>
+              <li>Fair spawning: the safe lane moves at most one lane per row, so every pattern can be dodged.</li>
+              <li>Sound is synthesized with WebAudio (no audio files), and a service worker caches everything for offline play.</li>
+            </ul>
+            <div class="card-foot">
+              <ul class="tags"><li>JavaScript</li><li>Canvas</li><li>PWA</li><li>WebAudio</li></ul>
+              <!-- Works once GitHub Pages is enabled on the Game repo -->
+              <div class="links"><a href="https://rapaez.github.io/Game/">Play in browser</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Irrigation <span class="kind">(working title)</span></h3>
+              <span class="kind">Puzzle game · in progress</span>
+            </div>
+            <p class="summary">
+              A pipe-rotation puzzle with a farm meta layer: tap tiles to turn them until every
+              plant has water, then spend coins upgrading the farm.
+            </p>
+            <ul class="proof">
+              <li>Levels are generated backwards from a solved spanning tree, so every level is solvable by construction.</li>
+              <li>A deduction-plus-search solver checks each level for uniqueness and par, and scores its difficulty to fit the curve.</li>
+              <li><span class="num">100</span> generated levels; the test suite checks every one is well-formed, solvable, and has a correct par.</li>
+            </ul>
+            <div class="card-foot">
+              <ul class="tags"><li>TypeScript</li><li>Vite</li><li>Procedural generation</li></ul>
+              <div class="links"><span class="note">Private repo</span></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="activities" aria-labelledby="act-h">
+        <div class="section-head">
+          <h2 id="act-h">Activities &amp; in design</h2>
+        </div>
+        <div class="mini">
+          <article class="card">
+            <h3>IEEE Student Chapter, St. Mary's University</h3>
+            <p>Secretary. Documentation and the chapter website.</p>
+          </article>
+          <article class="card">
+            <h3>Harvest Protocol</h3>
+            <p>Game design document for an idle farm-automation game for iOS and Android: ten rover tiers, a prestige loop, and a tuned economy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact" aria-labelledby="contact-h">
+        <div class="section-head">
+          <h2 id="contact-h">Contact</h2>
+        </div>
+        <!-- TODO: say what you're looking for (internships, full-time, research) -->
+        <p>Most of these repos are private. Happy to walk through any of them.</p>
+        <div class="hero-links">
+          <!-- TODO: replace with the email you want public -->
+          <a class="btn primary" href="mailto:you@example.com">Email</a>
+          <!-- TODO: replace with your LinkedIn URL -->
+          <a class="btn" href="https://www.linkedin.com/">LinkedIn</a>
+          <a class="btn" href="https://github.com/RAPaez">GitHub</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; 2026 Ricardo Paez &middot; Plain HTML and CSS, hosted on GitHub Pages.</div>
+  </footer>
+</body>
+</html>
