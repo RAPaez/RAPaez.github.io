@@ -65,13 +65,16 @@
               <span class="kind">Jun – Aug 2026</span>
             </div>
             <p class="org">USDA REEU program &middot; UTSA</p>
+            <p class="summary">
+              Computer vision for an autonomous agricultural rover: teaching it to tell
+              which crops are ready to harvest.
+            </p>
             <ul class="proof">
-              <li>Built an autonomous navigation pipeline for an agricultural rover in ROS 2 Humble: 2D SLAM mapping, particle-filter localization, and waypoint navigation, developed in Gazebo simulation.</li>
-              <li>Built occupancy-grid maps with Cartographer SLAM and LiDAR, and deployed the Nav2 stack for autonomous path planning and obstacle avoidance.</li>
-              <li>Trained a crop-ripeness classifier (unripe, transitioning, ripe) that reached <span class="num">0.944</span> mAP@0.5.</li>
+              <li>Trained a crop-ripeness detection model that reached <span class="num">0.944</span> mAP@0.5 across three classes: unripe, transitioning, and ripe.</li>
+              <li>Worked with the rover's existing ROS 2 Humble navigation stack (Cartographer SLAM with LiDAR, particle-filter localization, Nav2 path planning) in Gazebo simulation.</li>
             </ul>
             <div class="card-foot">
-              <ul class="tags"><li>ROS 2</li><li>Gazebo</li><li>Nav2</li><li>Cartographer SLAM</li><li>LiDAR</li><li>Computer vision</li></ul>
+              <ul class="tags"><li>Computer vision</li><li>Object detection</li><li>ROS 2</li><li>Nav2</li><li>Gazebo</li></ul>
             </div>
           </article>
 
