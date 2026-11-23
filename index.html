@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ricardo Paez</title>
-  <meta name="description" content="Projects by Ricardo Paez: COBOL benchmarks and RL environments, machine-verified practice problems, trading systems, and games.">
+  <meta name="description" content="Ricardo Paez, Software Engineering student at St. Mary's University: agricultural robotics research, COBOL benchmarks and RL environments, machine-verified practice problems, and games.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b7a5c'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +16,8 @@
     <div class="wrap">
       <a class="brand" href="#top">ricardo<span>.</span>paez</a>
       <nav class="nav" aria-label="Main">
-        <a href="#work">Work</a>
-        <a href="#activities" class="hide-xs">Activities</a>
+        <a href="#experience" class="hide-xs">Experience</a>
+        <a href="#work">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -26,25 +26,85 @@
   <main id="top">
     <div class="wrap">
       <section class="hero">
-        <!-- TODO: add school / major / graduation year here once confirmed -->
-        <p class="eyebrow">// Ricardo Paez</p>
+        <p class="eyebrow">// Ricardo Paez &middot; Software Engineering</p>
         <h1>I build software that checks its own work.</h1>
         <p class="lede">
-          Benchmarks, generators and games where the claims come with proof:
+          Robotics research, benchmarks, generators and games where the claims come with proof:
           COBOL ground truth from a real compiler, practice problems verified before
           they're printed, and puzzle levels proven solvable before anyone plays them.
         </p>
+        <ul class="facts" aria-label="Education">
+          <li>B.S. Software Engineering, St. Mary's University</li>
+          <li>Minors: Applied Mathematics, Physics</li>
+          <li>GPA 3.83</li>
+          <li>Graduating May 2028</li>
+        </ul>
+        <p class="status">
+          <span class="dot" aria-hidden="true"></span>
+          <span><strong>Looking for internships:</strong> summer 2027, plus a part-time
+          internship I can do alongside classes during my senior year (fall 2027 and spring 2028).</span>
+        </p>
         <div class="hero-links">
           <a class="btn primary" href="#work">See projects</a>
-          <!-- TODO: add resume.pdf to the repo root, then this link works -->
-          <a class="btn" href="resume.pdf">Resume</a>
+          <a class="btn" href="resume.pdf">Resume (PDF)</a>
+          <a class="btn" href="https://www.linkedin.com/in/ricardo-paez-68230023b">LinkedIn</a>
           <a class="btn" href="https://github.com/RAPaez">GitHub</a>
+        </div>
+      </section>
+
+      <section id="experience" aria-labelledby="xp-h">
+        <div class="section-head">
+          <h2 id="xp-h">Experience</h2>
+          <p>San Antonio, TX</p>
+        </div>
+
+        <div class="projects">
+          <article class="card">
+            <div class="card-top">
+              <h3>Undergraduate Research Intern, Autonomous Agricultural Robotics</h3>
+              <span class="kind">Jun – Aug 2026</span>
+            </div>
+            <p class="org">USDA REEU program &middot; UTSA</p>
+            <ul class="proof">
+              <li>Built an autonomous navigation pipeline for an agricultural rover in ROS 2 Humble: 2D SLAM mapping, particle-filter localization, and waypoint navigation, developed in Gazebo simulation.</li>
+              <li>Built occupancy-grid maps with Cartographer SLAM and LiDAR, and deployed the Nav2 stack for autonomous path planning and obstacle avoidance.</li>
+              <li>Trained a crop-ripeness classifier (unripe, transitioning, ripe) that reached <span class="num">0.944</span> mAP@0.5.</li>
+            </ul>
+            <div class="card-foot">
+              <ul class="tags"><li>ROS 2</li><li>Gazebo</li><li>Nav2</li><li>Cartographer SLAM</li><li>LiDAR</li><li>Computer vision</li></ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Software Developer Intern</h3>
+              <span class="kind">Oct 2025 – Apr 2026</span>
+            </div>
+            <p class="org">SAMSAT, San Antonio Museum of Science and Technology</p>
+            <ul class="proof">
+              <li>Built an HMI dashboard with <span class="num">11</span> interactive views that lets museum visitors switch physical lights on the Cyber City model and watch power-grid state in real time.</li>
+              <li>Modified OpenPLC control logic to process inputs and drive live graphical updates between the hardware and the HMI.</li>
+              <li>Wrote the Cyber City General Guide documenting the HMI and OpenPLC setup for future interns.</li>
+            </ul>
+            <div class="card-foot">
+              <ul class="tags"><li>OpenPLC</li><li>myDESIGNER</li><li>HMI</li><li>Industrial control systems</li></ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Academic Peer Coach</h3>
+              <span class="kind">Aug 2025 – present</span>
+            </div>
+            <p class="org">TRIO Student Support Services</p>
+            <p class="summary">Coach first-generation, low-income, and disabled students, and connect them with tutoring, financial aid, and wellness resources.</p>
+          </article>
         </div>
       </section>
 
       <section id="work" aria-labelledby="work-h">
         <div class="section-head">
-          <h2 id="work-h">Selected work</h2>
+          <h2 id="work-h">Selected projects</h2>
           <p>6 projects</p>
         </div>
 
@@ -187,12 +247,16 @@
 
       <section id="activities" aria-labelledby="act-h">
         <div class="section-head">
-          <h2 id="act-h">Activities &amp; in design</h2>
+          <h2 id="act-h">Activities &amp; certifications</h2>
         </div>
         <div class="mini">
           <article class="card">
             <h3>IEEE Student Chapter, St. Mary's University</h3>
-            <p>Secretary. Documentation and the chapter website.</p>
+            <p>Webmaster. I maintain the chapter website and its documentation.</p>
+          </article>
+          <article class="card">
+            <h3>Certifications</h3>
+            <p>SolidWorks CAD Design Associate &middot; Certiport Java</p>
           </article>
           <article class="card">
             <h3>Harvest Protocol</h3>
@@ -205,13 +269,10 @@
         <div class="section-head">
           <h2 id="contact-h">Contact</h2>
         </div>
-        <!-- TODO: say what you're looking for (internships, full-time, research) -->
-        <p>Most of these repos are private. Happy to walk through any of them.</p>
+        <p>Most of these project repos are private. Happy to walk through any of them.</p>
         <div class="hero-links">
-          <!-- TODO: replace with the email you want public -->
-          <a class="btn primary" href="mailto:you@example.com">Email</a>
-          <!-- TODO: replace with your LinkedIn URL -->
-          <a class="btn" href="https://www.linkedin.com/">LinkedIn</a>
+          <a class="btn primary" href="mailto:rpaez4@mail.stmarytx.edu">rpaez4@mail.stmarytx.edu</a>
+          <a class="btn" href="https://www.linkedin.com/in/ricardo-paez-68230023b">LinkedIn</a>
           <a class="btn" href="https://github.com/RAPaez">GitHub</a>
         </div>
       </section>
